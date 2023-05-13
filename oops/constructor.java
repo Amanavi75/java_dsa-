@@ -11,7 +11,8 @@ public class constructor {
         person(){
             // this is default constructor made by java 
         }
-        person(int age , String name ){ // parameterized constructor ; same name as function  it is called when we fire it with a constructor 
+        person(int age , String name ){ // parameterized constructor ; same name as function  it is called when we fire it with a constructor and java will remove its default constructor when any paramatrized constructor is created 
+             
             this.age =age ;
             this.name= name ;
         }
