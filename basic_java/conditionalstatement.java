@@ -1,3 +1,4 @@
+
 package basic;
 public class conditional {
     public static void main (String [] args )
