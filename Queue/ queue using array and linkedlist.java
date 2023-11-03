@@ -1,4 +1,7 @@
 package queue;
+/**
+queue
+**/
 
 public class queuearr {
     static class queue {
