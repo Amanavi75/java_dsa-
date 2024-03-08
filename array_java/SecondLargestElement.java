@@ -1,32 +1,40 @@
 package array;
-import java.util.Scanner;
+
 
 public class SecondLargestElement {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the size of the array: ");
-        int size = scanner.nextInt();
-        int[] arr = new int[size];
-        System.out.println("Enter the elements of the array:");
-        for (int i = 0; i < size; i++) {
-            arr[i] = scanner.nextInt();
-        }
-        int largest = Integer.MIN_VALUE;
-        int secondLargest = Integer.MIN_VALUE;
-        for (int i = 0; i < size; i++) {
-            if (arr[i] > largest) {
-                secondLargest = largest;
-                largest = arr[i];
-            } else if (arr[i] > secondLargest && arr[i] != largest) {
-                secondLargest = arr[i];
+    static int findMax(int [] arr){
+
+        int max =0;
+
+        int n = arr.length;
+        for(int i=0;i<n;i++){
+
+            if(arr[i]>max){
+                max = arr[i];
             }
         }
-        if (secondLargest == Integer.MIN_VALUE) {
-            System.out.println("There is no second largest element.");
-        } else {
-            System.out.println("The second largest element is " + secondLargest);
+
+        return max ;
+    }
+
+
+    static int SecondLargest(int [] arr){
+        int n = arr.length;
+
+        int mx = findMax(arr);
+        for(int i =0;i<n;i++){
+             if(arr[i]==mx){
+                arr[i]=Integer.MIN_VALUE;
+             }
         }
-        scanner.close();
+        int secondLar = findMax(arr);// new updated array
+        return secondLar;
+
     }
 }
+
+
+// * right the find max function thereafter we disappear the max value from the array and if we again find the maximum for the remaining array then that maximum will be the seconLargest element  
+
+//* to make it disappear we will make the fir max as negative of infinity */
