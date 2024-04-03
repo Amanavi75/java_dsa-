@@ -50,7 +50,7 @@ public class linkedlist {
         
         // assign the tail to newNode 
 
-        tail = newNode;
+        tail = newNode;  
 
     }
 
@@ -78,14 +78,15 @@ public class linkedlist {
          
         // put head in a temp variable 
         Node temp = head ;
-        // intialize i =0 for the next count which goes till 1 = idx-1
+        // intialize i =0 for the next count which goes till i = idx-1
         int i =0;
         while (i<idx-1){
             // iterate for the count of index till i =idx-1
             temp = temp.next;
             i++;
 
-        }
+        } // as soon as the i will be equal to idx-1 to find the exact location where we have to insert 
+        
         //connect  the newNode referece in temp node or newhead node 
         newNode.next= temp.next;
         //  and temp next node to newNode 
@@ -131,6 +132,7 @@ public class linkedlist {
         size--;
         return val ;
     }
+    // iterative search in linkedlist 
     public int itrSearch (int key ){ // O(n)
          Node temp = head;
          int i =0;
@@ -144,7 +146,7 @@ public class linkedlist {
          }
          return -1 ; // if key is not found in the whole linked list 
     }
-
+// helper function for recurssive search 
     public int helper(Node head ,int key){
         if(head == null){
             return -1;
@@ -163,8 +165,8 @@ public class linkedlist {
         return helper(head, key);
     }
     public void reverse(){
-        Node prev = null ;
-        Node curr = tail = head ;
+        Node prev = null ; // at first every node is null 
+        Node curr = tail = head ; // intitalize current as head 
         Node next ;
         while (curr!=null){
             next = curr.next; 
@@ -253,30 +255,6 @@ public class linkedlist {
         }
         return false ; // cycle does not exist 
     }
-    public static void removeCycle(){
-       // detect cycle 
-       Node slow = head;
-       Node fast = head ;
-       boolean cycle = false;
-       while (fast!= null && fast.next!=null){
-        slow= slow.next; // +1
-       fast = fast.next.next; //+2
-       if(slow==fast){
-          cycle = true; // cycle exist
-          break; 
-            }
-        }
-        // find meeting point  
-        slow = head ;
-        Node prev = null; // last node 
-        while (slow!=fast){
-            prev = fast;
-            slow = slow.next;
-            fast = fast.next;
-        }
-        // remove cycle = last.next = null
-        prev.next= null;
-   }
        
     public static void main(String artgs[]){
           
