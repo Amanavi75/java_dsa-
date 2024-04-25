@@ -1,3 +1,4 @@
+// count digit in a number
 package basic;
 import java.util.*;
 public class digitcount {
